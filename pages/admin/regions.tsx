@@ -5,7 +5,7 @@ import Link from "next/link";
 import path from "path";
 import fs from "fs";
 import type { Region } from "../../types/region";
-import styles from "../styles/RegionAdmin.module.css";
+import styles from "../../styles/RegionAdmin.module.css";
 
 interface SearchResult {
   name: string;
