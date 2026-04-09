@@ -1,0 +1,7 @@
+{
+  "regions": [
+    { "name": "동대문구", "cortarNo": "11230", "active": true },
+    { "name": "성동구",   "cortarNo": "11200", "active": true },
+    { "name": "광진구",   "cortarNo": "11215", "active": true }
+  ]
+}
