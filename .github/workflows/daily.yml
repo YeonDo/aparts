@@ -1,0 +1,25 @@
+name: Daily PropertyBot Crawl
+
+on:
+  schedule:
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+
+jobs:
+  crawl-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r crawler/requirements.txt
+      - env:
+          NAVER_COOKIE: ${{ secrets.NAVER_COOKIE }}
+        run: python crawler/crawler.py
+      - run: |
+          git config user.name "PropertyBot"
+          git config user.email "bot@propertybot.kr"
+          git add public/data.json
+          git diff --staged --quiet || git commit -m "chore: daily crawl $(date +'%Y-%m-%d')"
+          git push
