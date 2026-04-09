@@ -1,14 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import type { Region } from "../../types/region";
 import path from "path";
 import fs from "fs";
 
 const REGIONS_PATH = path.join(process.cwd(), "public", "regions.json");
-
-export interface Region {
-  name: string;
-  cortarNo: string;
-  active: boolean;
-}
 
 function readRegions(): Region[] {
   const raw = fs.readFileSync(REGIONS_PATH, "utf-8");

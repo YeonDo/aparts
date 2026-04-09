@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import path from "path";
 import fs from "fs";
-import type { Region } from "./api/regions";
+import type { Region } from "../../types/region";
 import styles from "../styles/RegionAdmin.module.css";
 
 interface SearchResult {
